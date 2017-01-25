@@ -1,0 +1,19 @@
+.steps {
+	display: table;
+	width: 100%;
+	margin: 35px 0;
+	&__row {
+		display: table-row;
+		&:last-child {
+			.steps__item {
+				padding-top: 30px;
+				text-transform: uppercase;
+				text-align: center;
+				@include font(24, 26, 300);
+			}
+		}
+	}
+	&__item {
+		display: table-cell;
+	}
+}

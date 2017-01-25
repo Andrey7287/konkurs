@@ -1,0 +1,117 @@
+// Box-sizing
+* {
+	box-sizing: border-box;
+}
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+body {
+	font-size: #{$base-font-size}px;
+	color: $default-color;
+}
+p {
+	@include font;
+}
+
+.bkg-block {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+.container {
+	position: relative;
+	@include clearfix;
+	width: 1130px;
+	padding-left: 65px;
+	padding-right: 65px;
+	margin: 0 auto;
+}
+
+.block {
+	padding-top: 40px;
+	padding-bottom: 75px;
+}
+
+// Links
+
+a {
+	text-decoration: none;
+	display: inline-block;
+	&[href^="mailto"]{
+		text-decoration: underline;
+	}
+}
+
+// Images
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+//Buttons
+
+body button:not(.scrollup) {
+	background: rgb(247,63,89);
+	background: linear-gradient(to bottom, rgba(247,63,89,1) 0%,rgba(222,55,78,1) 49%,rgba(218,54,77,1) 50%,rgba(200,48,69,1) 100%);
+	color: $white;
+	@include font(30,30, 700);
+	text-transform: uppercase;
+	padding: 20px 30px;
+	border-radius: 5px;
+	border: 0;
+	box-shadow: 0 1px 0 0 #ff4e67, 0 3px 0 0 #8e094b;
+	&:hover {
+		background: linear-gradient(to top, rgba(247,63,89,1) 0%,rgba(222,55,78,1) 49%,rgba(218,54,77,1) 50%,rgba(200,48,69,1) 100%);
+		box-shadow: 0 1px 0 0 #ff7689, 0 3px 0 0 rgba(247,63,89,1);
+	}
+	&.green {
+		border: #118654;
+		background: rgb(24,151,97);
+		background: linear-gradient(to bottom, rgba(24,151,97,1) 0%,rgba(1,104,60,1) 100%);
+		box-shadow: 0 1px 0 0 #118654, 0 3px 0 0 #003e24;
+		@include font(22, 26, 400);
+		width: 270px;
+		padding: 10px;
+		&:hover {
+			background: linear-gradient(to top, rgba(24,151,97,1) 0%,rgba(1,104,60,1) 100%);
+			box-shadow: 0 1px 0 0 #24a06b, 0 3px 0 0 #1e7b54;
+		}
+	}
+}
+
+// Headers
+
+h1, .h1 {
+	@include font(48, 48, 300);
+	color: $header;
+	margin: 15px 0;
+	text-transform: uppercase;
+}
+h2, .h2 {
+	@include font(48, 48, 300);
+	color: $header;
+	margin: 15px 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+h3, .h3 {
+	@include font(28, 32, 600);
+	color: #3e5d74;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+h4, .h4 {
+	@include font(20, 22, 600);
+	color: #3e5d74;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+
+
+.box {
+	padding: 25px 30px;
+	background: rgba(255,255,255,.66);
+	border-radius: 4px;
+	display: inline-block;
+}

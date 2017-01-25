@@ -1,0 +1,145 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$arrow-left-name: 'arrow_left';
+$arrow-left-x: 0px;
+$arrow-left-y: 0px;
+$arrow-left-offset-x: 0px;
+$arrow-left-offset-y: 0px;
+$arrow-left-width: 27px;
+$arrow-left-height: 50px;
+$arrow-left-total-width: 91px;
+$arrow-left-total-height: 74px;
+$arrow-left-image: '/images//sprite.png';
+$arrow-left: (0px, 0px, 0px, 0px, 27px, 50px, 91px, 74px, '/images//sprite.png', 'arrow_left', );
+$arrow-right-name: 'arrow_right';
+$arrow-right-x: 27px;
+$arrow-right-y: 0px;
+$arrow-right-offset-x: -27px;
+$arrow-right-offset-y: 0px;
+$arrow-right-width: 27px;
+$arrow-right-height: 50px;
+$arrow-right-total-width: 91px;
+$arrow-right-total-height: 74px;
+$arrow-right-image: '/images//sprite.png';
+$arrow-right: (27px, 0px, -27px, 0px, 27px, 50px, 91px, 74px, '/images//sprite.png', 'arrow_right', );
+$soc-fb-name: 'soc_fb';
+$soc-fb-x: 0px;
+$soc-fb-y: 50px;
+$soc-fb-offset-x: 0px;
+$soc-fb-offset-y: -50px;
+$soc-fb-width: 11px;
+$soc-fb-height: 24px;
+$soc-fb-total-width: 91px;
+$soc-fb-total-height: 74px;
+$soc-fb-image: '/images//sprite.png';
+$soc-fb: (0px, 50px, 0px, -50px, 11px, 24px, 91px, 74px, '/images//sprite.png', 'soc_fb', );
+$soc-ok-name: 'soc_ok';
+$soc-ok-x: 74px;
+$soc-ok-y: 21px;
+$soc-ok-offset-x: -74px;
+$soc-ok-offset-y: -21px;
+$soc-ok-width: 13px;
+$soc-ok-height: 24px;
+$soc-ok-total-width: 91px;
+$soc-ok-total-height: 74px;
+$soc-ok-image: '/images//sprite.png';
+$soc-ok: (74px, 21px, -74px, -21px, 13px, 24px, 91px, 74px, '/images//sprite.png', 'soc_ok', );
+$soc-tube-name: 'soc_tube';
+$soc-tube-x: 54px;
+$soc-tube-y: 21px;
+$soc-tube-offset-x: -54px;
+$soc-tube-offset-y: -21px;
+$soc-tube-width: 20px;
+$soc-tube-height: 24px;
+$soc-tube-total-width: 91px;
+$soc-tube-total-height: 74px;
+$soc-tube-image: '/images//sprite.png';
+$soc-tube: (54px, 21px, -54px, -21px, 20px, 24px, 91px, 74px, '/images//sprite.png', 'soc_tube', );
+$soc-vk-name: 'soc_vk';
+$soc-vk-x: 54px;
+$soc-vk-y: 0px;
+$soc-vk-offset-x: -54px;
+$soc-vk-offset-y: 0px;
+$soc-vk-width: 37px;
+$soc-vk-height: 21px;
+$soc-vk-total-width: 91px;
+$soc-vk-total-height: 74px;
+$soc-vk-image: '/images//sprite.png';
+$soc-vk: (54px, 0px, -54px, 0px, 37px, 21px, 91px, 74px, '/images//sprite.png', 'soc_vk', );
+$spritesheet-width: 91px;
+$spritesheet-height: 74px;
+$spritesheet-image: '/images//sprite.png';
+$spritesheet-sprites: ($arrow-left, $arrow-right, $soc-fb, $soc-ok, $soc-tube, $soc-vk, );
+$spritesheet: (91px, 74px, '/images//sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}

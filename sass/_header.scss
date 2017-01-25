@@ -1,0 +1,54 @@
+.header {
+	background: $header-color;
+	position: absolute;
+	padding: 22px 0;
+	top:0;
+	left:0;
+	right:0;
+	&__item {
+		float: left;
+		&:first-child {
+			margin-right: 45px;
+		}
+		&:last-child {
+			float: right;
+		}
+	}
+	.head {
+		&__item {
+			@include font(20,20,300);
+			color: $red-light;
+			text-transform: uppercase;
+			&:first-child {
+				@include font(12,20,400);
+				color: $grey;
+				position: relative;
+				top: -3px;
+			}
+			&:last-child {
+				@include font(20,20,600);
+				color: $green;
+			}
+		}
+	}
+	.call {
+		&__item {
+			text-align: right;
+			text-transform: uppercase;
+			&:nth-child(1){
+				@include font(14,20);
+				color: #555;
+				position: relative;
+				top: -3px;
+			}
+			&:nth-child(2){
+				@include font(30,20,600);
+				color: $red-light;
+			}
+			&:nth-child(3){
+				@include font(12,20);
+				color: $grey;
+			}
+		}
+	}
+}
