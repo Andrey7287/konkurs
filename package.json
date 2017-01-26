@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "echo NODE_ENV \\\"Error: no test specified\\\" ",
 		"dev": "cross-env NODE_ENV=development webpack-dev-server",
-		"prod": "npm install --production webpack"
+		"prod": "cross-env NODE_ENV=production webpack",
+		"install-prod": "npm install --production"
 	},
 	"repository": {
 		"type": "git",

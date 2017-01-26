@@ -18,8 +18,8 @@ module.exports = {
 	},
 
 	output: {
-		path: __dirname + '/js',
-		publicPath: '/js/',
+		path: NODE_ENV == 'development' ? __dirname + '/js' : './js',
+		publicPath: NODE_ENV == 'development' ? '/js/' : './js/',
 		filename: "[name].js?"
 	},
 
