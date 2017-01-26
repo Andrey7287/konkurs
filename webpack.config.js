@@ -44,7 +44,7 @@ module.exports = {
 				css: path.resolve(__dirname, 'sass/tools/_sprite.scss')
 			},
 			apiOptions: {
-				cssImageRef: '/images//sprite.png'
+				cssImageRef: 'images/sprite.png'
 			}
 		}),
 		new ExtractTextPlugin("../[name].css", {
@@ -66,12 +66,16 @@ module.exports = {
 			},
 			{
 				test: /\.png$/,
-				loader:'file?name=i/[hash].[ext]'
+				loader:'file-loader?name=[name].[ext]&publicPath=images/&outputPath=./images/'
 			},{
 				test: /\.scss$/,
 				loader: NODE_ENV == 'development' ?
 				'style-loader!css-loader!sass-loader' :
 				ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap!resolve-url-loader?sourceMap!sass-loader?sourceMap')
+			},
+			{
+				test: /\.(gif|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+				loader: "file-loader?name=[name].[ext]&publicPath=images/&outputPath=./images/"
 			}
 		]
 	},

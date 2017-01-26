@@ -2,7 +2,7 @@
 	position: relative;
 	@for $i from 1 through 3 {
 		&--#{$i} {
-			background: url(/images/background#{$i}.jpg) 50% 0 no-repeat;
+			background: url(images/background#{$i}.jpg) 50% 0 no-repeat;
 		}
 	}
 
