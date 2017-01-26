@@ -30,6 +30,9 @@ p {
 .block {
 	padding-top: 40px;
 	padding-bottom: 75px;
+	&--summary {
+		padding-bottom: 0;
+	}
 }
 
 // Links
@@ -39,6 +42,10 @@ a {
 	display: inline-block;
 	&[href^="mailto"]{
 		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+			color: $txt-footer;
+		}
 	}
 }
 
@@ -51,7 +58,7 @@ img {
 
 //Buttons
 
-body button:not(.scrollup) {
+body button:not(.scrollup):not(.slider-arrow) {
 	background: rgb(247,63,89);
 	background: linear-gradient(to bottom, rgba(247,63,89,1) 0%,rgba(222,55,78,1) 49%,rgba(218,54,77,1) 50%,rgba(200,48,69,1) 100%);
 	color: $white;

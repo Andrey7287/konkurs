@@ -71,8 +71,7 @@ if ( isSlider ) {
 		$('.slider').slick({
 			prevArrow: $('.left'),
 			nextArrow: $('.right'),
-			dots: true,
-			appendDots: $('.slider-dots')
+			slidesToShow: 3
 		});
 	});
 

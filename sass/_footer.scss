@@ -1,22 +1,107 @@
 footer {
 	background: $bkg-footer;
-	padding: 25px 0;
-	.soc {
-		line-height: 30px;
-		@include breakpoint (mobile) {
-			margin: 10px 0 20px;
+	padding: 40px 0;
+	color: $txt-footer;
+	h2 {
+		color: $white;
+	}
+	.footer {
+		display: table;
+		width: 100%;
+		margin: 15px 0;
+		&__item {
+			display: table-cell;
+			text-align: center;
+			position: relative;
+			&:first-child {
+				text-align: left;
+			}
+			&:last-child {
+				text-align: right;
+			}
 		}
+	}
+
+	.phone {
+		&__title {
+			@include font(14, 26);
+		}
+		&__num {
+			color: $white;
+			@include font(30, 26,600);
+			&:hover {
+				color: $txt-footer;
+			}
+		}
+		&__info {
+			@include font(12, 18);
+		}
+	}
+
+	.found {
+		&__title {
+			@include font(12, 16);
+		}
+		&__mail {
+			color: $white;
+			@include font(24, 26,600);
+		}
+		&__info {
+			color: #82a6c0;
+			@include font(10, 16);
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	.address {
+		@include font(12, 16);
+	}
+
+	.soc {
+		position: absolute;
+		bottom: 3px;
+		left: 0;
+		right: 0;
 		&__item {
 			font-size: 0;
 			line-height: 0;
 			vertical-align: middle;
 			position: relative;
+			margin-left: 8px;
 			&::before {
-				content: ".";
-				width: 42px;
-				height: 36px;
+				content: "";
 				display: inline-block;
+				opacity: 0.8;
+			}
+			&:hover {
+				&::before {
+					opacity: 1;
+				}
+			}
+			&--vk {
+				&::before {
+					@include sprite($soc_vk);
+				}
+			}
+			&--fb {
+				&::before {
+					@include sprite($soc_fb);
+				}
+			}
+			&--ok {
+				&::before {
+					@include sprite($soc_ok);
+				}
+			}
+			&--tube {
+				&::before {
+					@include sprite($soc_tube);
+				}
 			}
 		}
+
 	}
 }

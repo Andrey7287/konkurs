@@ -1,0 +1,43 @@
+.summary {
+	background: url(/images/bkg_small.jpg) 40% 0 no-repeat;
+	padding-top: 210px;
+	padding-bottom: 80px;
+	position: relative;
+	&__info {
+		background: rgba(224,244,246,.5);
+		@include clearfix;
+		padding: 10px 0;
+	}
+	&__item {
+		width: 50%;
+		float: left;
+		.num {
+			@include font(150, 120, 800);
+			color: $red-light;
+			position: relative;
+		}
+		.txt {
+			@include font(24, 26);
+			color: #016a3d;
+		}
+		&:first-child {
+			padding-left: 85px;
+			.num {
+				left: -5px;
+			}
+		}
+		&:last-child {
+			padding-right: 60px;
+			text-align: right;
+			.num {
+				right: -5px;
+			}
+		}
+	}
+	&__button {
+		position: absolute;
+		left: calc(50% - 192px);
+		bottom: -60px;
+		z-index: 100;
+	}
+}

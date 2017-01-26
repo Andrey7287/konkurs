@@ -46,8 +46,12 @@
 				text-align: center;
 			}
 		}
+	}
 
-
+	&--3 {
+		padding-top: 340px;
+		padding-bottom: 90px;
+		text-align: center;
 	}
 }
 
@@ -85,5 +89,18 @@
 				text-align: right;
 			}
 		}
+	}
+}
+
+.nb-slogan {
+	@include font(45,42,300);
+	color: $dark-blue;
+	text-transform: uppercase;
+	text-align: center;
+	span {
+		font-weight: 600;
+		color: $green;
+		display: block;
+		margin: 20px auto;
 	}
 }
