@@ -66,7 +66,7 @@ module.exports = {
 			},
 			{
 				test: /\.png$/,
-				loader:'file-loader?name=[name].[ext]&publicPath=images/&outputPath=./images/'
+				loader:'file-loader?name=[name].[ext]&publicPath=images/&outputPath=assets/'
 			},{
 				test: /\.scss$/,
 				loader: NODE_ENV == 'development' ?
@@ -75,7 +75,7 @@ module.exports = {
 			},
 			{
 				test: /\.(gif|jpg|jpeg\ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-				loader: "file-loader?name=[name].[ext]&publicPath=images/&outputPath=./images/"
+				loader: "file-loader?name=[name].[ext]&publicPath=images/&outputPath=assets/"
 			}
 		]
 	},
